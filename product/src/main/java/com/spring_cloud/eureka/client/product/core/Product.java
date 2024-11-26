@@ -59,7 +59,7 @@ public class Product {
         this.updatedBy = userId;
     }
 
-    public void delete(Long id, String userId) {
+    public void delete(String userId) {
         this.deletedAt = LocalDateTime.now();
         this.deletedBy = userId;
     }

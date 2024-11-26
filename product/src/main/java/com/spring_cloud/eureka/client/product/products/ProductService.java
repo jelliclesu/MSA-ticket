@@ -49,7 +49,7 @@ public class ProductService {
     public void deleteProduct(Long id, String userId) {
         Product product = productRepository.findByIdAndDeletedAtIsNull(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "해당 상품이 존재하지 않습니다."));
-        product.delete(id, userId);
+        product.delete(userId);
     }
 
     @Transactional
