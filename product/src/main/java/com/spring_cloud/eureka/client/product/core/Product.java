@@ -64,7 +64,7 @@ public class Product {
         this.deletedBy = userId;
     }
 
-    public void reduceQuantity(int quantity) {
-        this.quantity = quantity - 1;
+    public void reduceQuantity(int i) {
+        this.quantity = quantity - i;
     }
 }

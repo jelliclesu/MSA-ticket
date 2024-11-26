@@ -47,7 +47,8 @@ public class ProductController {
 
     // 삭제
     @DeleteMapping("/{id}")
-    public void  deleteProduct(@PathVariable Long id, @RequestParam String userId) {
+    public void  deleteProduct(@PathVariable Long id,
+                               @RequestHeader(value = "X-User-Id", required = true) String userId) {
         productService.deleteProduct(id, userId);
     }
 
