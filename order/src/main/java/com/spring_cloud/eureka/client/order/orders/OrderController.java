@@ -50,7 +50,7 @@ public class OrderController {
     // 삭제
     @DeleteMapping("/{id}")
     public void deleteOrder(@PathVariable Long id,
-                            @RequestParam String userId) {
+                            @RequestHeader("X-User-Id") String userId) {
         orderService.deleteOrder(id, userId);
     }
 }
