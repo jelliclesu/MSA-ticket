@@ -37,7 +37,7 @@ public class LocalJwtAuthenticationFilter implements GlobalFilter {
             return exchange.getResponse().setComplete();
         }
 
-        return null;
+        return chain.filter(exchange);
     }
 
     private boolean validateToken(String token, ServerWebExchange exchange) {
