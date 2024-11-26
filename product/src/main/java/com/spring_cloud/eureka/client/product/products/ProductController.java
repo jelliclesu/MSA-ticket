@@ -17,8 +17,8 @@ public class ProductController {
     // 생성
     @PostMapping
     public ProductResponseDto createProduct(@RequestBody ProductRequestDto requestDto,
-                                            @RequestHeader("X-User-Id") String userId,
-                                            @RequestHeader("X-Role") String role) {
+                                            @RequestHeader(value = "X-User-Id", required = true) String userId,
+                                            @RequestHeader(value = "X-Role", required = true) String role) {
         if (!role.equals("MANAGER")) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "매니저 권한이 아닙니다.");
         }
@@ -41,7 +41,7 @@ public class ProductController {
     @PutMapping("/{id}")
     public ProductResponseDto updateProduct(@PathVariable Long id,
                                             @RequestBody ProductRequestDto requestDto,
-                                            @RequestHeader("X-User-Id") String userId) {
+                                            @RequestHeader(value = "X-User-Id", required = true) String userId) {
         return productService.updateProduct(id, requestDto, userId);
     }
 
